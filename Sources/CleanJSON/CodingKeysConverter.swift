@@ -13,7 +13,7 @@ public typealias CodingPath = [String]
 public extension JSONDecoder.KeyDecodingStrategy {
     
     static func mapper(_ container: [CodingPath: String]) -> JSONDecoder.KeyDecodingStrategy {
-        .custom { CodingKeysConverter(container)($0) }
+        .custom { CodingKeysConverter(container).callAsFunction($0) }
     }
 }
 
